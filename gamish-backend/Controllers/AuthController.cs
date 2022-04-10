@@ -9,17 +9,17 @@ namespace gamish_backend.Controllers
 {
     public class AuthController : ControllerBase
     {
-        private readonly AuthService _auth;
-        public AuthController(AuthService auth)
+        private readonly ServiceUoW _service;
+        public AuthController(ServiceUoW service)
         {
-            _auth = auth;
+            _service = service;
         }
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] Login login)
         {
-            var response = await _auth.Login(login);
-            return Ok(new {Message = response });
+            var response = await _service.AuthService.Login(login);
+            return Ok(response);
         }
     }
 }

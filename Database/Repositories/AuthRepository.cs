@@ -16,7 +16,7 @@ namespace Database.Repositories
 
         public async Task<bool> Login(Login login)
         {
-            string sql = $"SELECT SENHA FROM USUARIOS WHERE NOME = '{login.UserName}'";
+            string sql = $"SELECT SENHA FROM USUARIOS WHERE NOME = '{login.Username}'";
             using(var conn = _db.Connection)
             {
                 string password = await conn.QueryFirstOrDefaultAsync<string>(sql);

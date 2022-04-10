@@ -6,24 +6,24 @@ namespace gamish_backend.Services
 {
     public class AuthService
     {
-        private readonly AuthRepository _auth;
+        private readonly RepositoryUoW _repository;
 
-        public AuthService(AuthRepository auth)
+        public AuthService(RepositoryUoW repository)
         {
-            _auth = auth;
+            _repository = repository;
         }
 
-        public async Task<string> Login(Login login)
+        public async Task<LoginResult> Login(Login login)
         {
-            bool validLogin = await _auth.Login(login);
-            if (validLogin)
+            bool validLogin = await _repository.AuthRepository.Login(login);
+
+            LoginResult loginResult = new LoginResult
             {
-                return "Logado!";
-            }
-            else
-            {
-                return "Não logado!";
-            }
+                Username = login.Username,
+                Status = validLogin ? "Login Autorizado" : "Login não autorizado"
+            };
+
+            return loginResult;
         }
     }
 }
