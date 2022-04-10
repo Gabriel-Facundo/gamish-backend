@@ -14,20 +14,30 @@ namespace Database.Repositories
             _db = db;
         }
 
-        public async Task<bool> Login(Login login)
+        public async Task<LoginResult> Login(Login login)
         {
+            LoginResult result = new();
+
             string sql = $"SELECT SENHA FROM USUARIOS WHERE NOME = '{login.Username}'";
+
             using(var conn = _db.Connection)
             {
+                long? id = null;
                 string password = await conn.QueryFirstOrDefaultAsync<string>(sql);
+
                 if(password == login.Password)
                 {
-                    return true;
+                    sql = $"SELECT ID FROM USUARIOS WHERE NOME = '{login.Username}'";
+                    id = await conn.QueryFirstOrDefaultAsync<long>(sql);
                 }
-                else
+
+                result = new LoginResult
                 {
-                    return false;
-                }
+                    Id = id,
+                    Username = login.Username,
+                    Status = password == login.Password ? "Login Autorizado" : "Login não autorizado"
+                };
+                return result;
             }
         }
     }

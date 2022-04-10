@@ -15,15 +15,8 @@ namespace gamish_backend.Services
 
         public async Task<LoginResult> Login(Login login)
         {
-            bool validLogin = await _repository.AuthRepository.Login(login);
-
-            LoginResult loginResult = new LoginResult
-            {
-                Username = login.Username,
-                Status = validLogin ? "Login Autorizado" : "Login não autorizado"
-            };
-
-            return loginResult;
+            LoginResult validLogin = await _repository.AuthRepository.Login(login);
+            return validLogin;
         }
     }
 }

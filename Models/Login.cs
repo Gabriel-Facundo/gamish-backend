@@ -14,6 +14,7 @@ namespace Models
 
     public class LoginResult
     {
+        public long? Id { get; set; }
         public string Username { get; set; }
         public string Status { get; set; }
     }
