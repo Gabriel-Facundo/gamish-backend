@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gamish-backend", "gamish-backend.csproj", "{BEF67436-F861-40AA-A296-56CEE8F75BC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.csproj", "{5A6B780C-23C9-47C9-A925-CC36FF1778C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "..\Models\Models.csproj", "{5A6B780C-23C9-47C9-A925-CC36FF1778C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "..\Database\Database.csproj", "{1BBA0D6E-7C5C-4428-9FD4-E8733D386BD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5A6B780C-23C9-47C9-A925-CC36FF1778C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A6B780C-23C9-47C9-A925-CC36FF1778C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A6B780C-23C9-47C9-A925-CC36FF1778C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BBA0D6E-7C5C-4428-9FD4-E8733D386BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BBA0D6E-7C5C-4428-9FD4-E8733D386BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BBA0D6E-7C5C-4428-9FD4-E8733D386BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BBA0D6E-7C5C-4428-9FD4-E8733D386BD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

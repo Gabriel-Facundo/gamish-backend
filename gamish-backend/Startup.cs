@@ -1,3 +1,6 @@
+using Database.DB;
+using Database.Repositories;
+using gamish_backend.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +30,10 @@ namespace gamish_backend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
+
+            services.AddScoped<DbHandler>();
+            services.AddScoped<AuthRepository>();
+            services.AddScoped<AuthService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
