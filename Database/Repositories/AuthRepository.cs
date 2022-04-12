@@ -20,7 +20,7 @@ namespace Database.Repositories
 
             string sql = $"SELECT SENHA FROM USUARIOS WHERE NOME = '{login.Username}'";
 
-            using(var conn = _db.Connection)
+            using(var conn = _db.GetConnection())
             {
                 long? id = null;
                 string password = await conn.QueryFirstOrDefaultAsync<string>(sql);

@@ -12,7 +12,7 @@ namespace Database.Repositories
         private DbHandler _db;
 
         private AuthRepository _authRepository;
-
+        private UserRepository _userRepository;
         public RepositoryUoW(DbHandler db)
         {
             _db = db;
@@ -21,6 +21,11 @@ namespace Database.Repositories
         public AuthRepository AuthRepository
         {
             get { return _authRepository ??= new AuthRepository(_db); }
+        }
+
+        public UserRepository UserRepository
+        {
+            get { return _userRepository ??= new UserRepository(_db, this); }
         }
     }
 }

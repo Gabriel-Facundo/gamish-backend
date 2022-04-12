@@ -13,7 +13,19 @@ namespace Database.DB
         public DbHandler(IConfiguration configuration)
         {
             Connection = new MySqlConnection(configuration["ConnectionString"]);
-            Connection.Open();
+        }
+
+        public IDbConnection GetConnection()
+        {
+            if(Connection.State == ConnectionState.Open)
+            {
+                return Connection;
+            }
+            else
+            {
+                Connection.Open();
+                return Connection;
+            }
         }
         public void Dispose() => Connection?.Dispose();
     }
