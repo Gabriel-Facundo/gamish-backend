@@ -22,7 +22,7 @@ namespace gamish_backend.Controllers
         }
 
         [HttpPost("CreateUser")]
-        public async Task<IActionResult> CreateUser(PostLogin login)
+        public async Task<IActionResult> CreateUser([FromBody]PostLogin login)
         {
             var response = await _serviceUoW.UserService.CreateLogin(login);
             return Ok(response);
