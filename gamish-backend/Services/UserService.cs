@@ -19,11 +19,12 @@ namespace gamish_backend.Services
             return loginResult;
         }
 
-        public async Task<string> CheckIfLoginExistes(string login)
+        public async Task<LoginCheck> CheckIfLoginExistes(string login)
         {
+            LoginCheck loginCheck = new();
             bool LoginExists = await _repository.UserRepository.CheckIfLoginExistes(login);
-            if (LoginExists) return "Login já existe";
-            else return "Login não existe";
+            if (LoginExists) return loginCheck = new LoginCheck { Message = "Login já existe", Status = "Falha"};
+            else return loginCheck = new LoginCheck { Message = "Login não existe", Status = "Ok" };
         }
     }
 }

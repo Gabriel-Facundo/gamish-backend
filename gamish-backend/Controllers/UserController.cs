@@ -18,7 +18,7 @@ namespace gamish_backend.Controllers
         public async Task<IActionResult> CheckUser(string login)
         {
             var response = await _serviceUoW.UserService.CheckIfLoginExistes(login);
-            return Ok(new { Message = response });
+            return Ok(response);
         }
 
         [HttpPost("CreateUser")]

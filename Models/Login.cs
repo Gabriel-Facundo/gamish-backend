@@ -18,4 +18,10 @@ namespace Models
         public string Username { get; set; }
         public string Status { get; set; }
     }
+
+    public class LoginCheck
+    {
+        public string Message { get; set; }
+        public string Status { get; set; }
+    }
 }
